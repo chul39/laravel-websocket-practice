@@ -7,6 +7,14 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+// Login
+use Illuminate\Auth\Events\Login;
+use App\Listeners\BroadcastUserLoginNotification;
+
+// Logout
+use Illuminate\Auth\Events\Logout;
+use App\Listeners\BroadcastUserLogoutNotification;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +26,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        Login::class => [
+            BroadcastUserLoginNotification::class,
+        ],
+        Logout::class => [
+            BroadcastUserLogoutNotification::class,
+        ]
     ];
 
     /**

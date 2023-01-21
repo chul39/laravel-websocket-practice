@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div id="notification" class="alert alert-success invisible mx-3">Logged in</div>
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
